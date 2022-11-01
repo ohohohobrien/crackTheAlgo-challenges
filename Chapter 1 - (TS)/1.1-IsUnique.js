@@ -1,12 +1,14 @@
+"use strict";
 // Implement an algorithm to determine if a string has all unique characters
 // Challenge: cannot use an additional data structure
-var test_string_1 = "abcdefghijklmnop"; // unique
-var test_string_2 = "abcdeffghijklmanop"; // not unique
-var test_string_3 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // unique
+const test_string_1 = "abcdefghijklmnop"; // unique
+const test_string_2 = "abcdeffghijklmanop"; // not unique
+const test_string_3 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // unique
+// hashmap solution - t = O(n), s = O(n) 
 function isUnique(string) {
-    var char_map = {};
-    var length = string.length;
-    for (var i = 0; i < length; i++) {
+    let char_map = {};
+    const length = string.length;
+    for (let i = 0; i < length; i++) {
         if (string[i] in char_map) {
             return false;
         }
@@ -16,6 +18,6 @@ function isUnique(string) {
     }
     return true;
 }
-console.log("Test string 1: Expected: true | Result: ".concat(isUnique(test_string_1).toString()));
-console.log("Test string 2: Expected: false | Result: ".concat(isUnique(test_string_2).toString()));
-console.log("Test string 3: Expected: true | Result: ".concat(isUnique(test_string_3).toString()));
+console.log(`Test string 1: Expected: true | Result: ${isUnique(test_string_1).toString()}`);
+console.log(`Test string 2: Expected: false | Result: ${isUnique(test_string_2).toString()}`);
+console.log(`Test string 3: Expected: true | Result: ${isUnique(test_string_3).toString()}`);

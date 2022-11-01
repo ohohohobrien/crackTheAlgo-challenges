@@ -6,8 +6,8 @@ const test_string_2 = "abcdeffghijklmanop"; // not unique
 const test_string_3 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; // unique
 
 // hashmap solution - t = O(n), s = O(n) 
-function isUnique(string): boolean {
-    let char_map = {};
+function isUnique(string: string): boolean {
+    let char_map: any = {};
     const length = string.length;
 
     for (let i = 0; i < length; i++) {

@@ -1,11 +1,12 @@
-var NodeTS = /** @class */ (function () {
-    function NodeTS(value) {
+"use strict";
+class NodeTS {
+    constructor(value) {
         this.value = value;
         this.next = null;
         this.current = null;
     }
     ;
-    NodeTS.prototype.addNode = function (value) {
+    addNode(value) {
         this.current = this;
         if (this.current.next == null) {
             this.next = new NodeTS(value);
@@ -16,16 +17,15 @@ var NodeTS = /** @class */ (function () {
             }
             this.current.next = new NodeTS(value);
         }
-    };
-    return NodeTS;
-}());
-var range = Math.floor((Math.random() * 100));
-var LinkedListTS = new NodeTS(range);
-for (var i = 0; i < range; i++) {
-    var randomNum = Math.floor((Math.random() * 100));
+    }
+}
+const range = Math.floor((Math.random() * 100));
+let LinkedListTS = new NodeTS(range);
+for (let i = 0; i < range; i++) {
+    const randomNum = Math.floor((Math.random() * 100));
     LinkedListTS.addNode(randomNum);
 }
-var current = LinkedListTS;
+let current = LinkedListTS;
 while (current) {
     console.log(current.value);
     current = current.next;

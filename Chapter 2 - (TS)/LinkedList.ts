@@ -10,7 +10,7 @@ class NodeTS {
         this.current = null;
     };
 
-    addNode(value) {
+    addNode(value: any) {
         this.current = this;
         if (this.current.next == null) {
             this.next = new NodeTS(value);
