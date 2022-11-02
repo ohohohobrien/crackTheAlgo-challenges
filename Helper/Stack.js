@@ -2,21 +2,21 @@
 // Implement a stack 
 // Stack = LIFO (think stack of plates)
 // Keep track of the top
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.Stack = void 0;
-class Stack {
-    constructor(data) {
+var Stack = /** @class */ (function () {
+    function Stack(data) {
         this.items = [data];
         this.minStack = new MinStack(data);
     }
-    push(element) {
+    Stack.prototype.push = function (element) {
         this.items.push(element);
         if (element < this.minStack.peek()) {
             this.minStack.push(element);
         }
-    }
-    pop() {
-        const length = this.items.length;
+    };
+    Stack.prototype.pop = function () {
+        var length = this.items.length;
         if (length == 0) {
             throw Error("Stack is empty.");
         }
@@ -24,76 +24,79 @@ class Stack {
             this.minStack.pop();
         }
         return this.items.pop();
-    }
-    peek() {
-        const length = this.items.length;
+    };
+    Stack.prototype.peek = function () {
+        var length = this.items.length;
         if (length == 0) {
             throw Error("Stack is empty.");
         }
         return this.items[length - 1];
-    }
-    isEmpty() {
+    };
+    Stack.prototype.isEmpty = function () {
         if (this.items.length == 0) {
             return true;
         }
         else {
             return false;
         }
-    }
-    min() {
+    };
+    Stack.prototype.min = function () {
         return this.minStack.peek();
-    }
-}
+    };
+    return Stack;
+}());
 exports.Stack = Stack;
-class MinStack {
-    constructor(data) {
+var MinStack = /** @class */ (function () {
+    function MinStack(data) {
         this.items = [data];
     }
-    push(element) {
+    MinStack.prototype.push = function (element) {
         this.items.push(element);
-    }
-    pop() {
-        const length = this.items.length;
+    };
+    MinStack.prototype.pop = function () {
+        var length = this.items.length;
         if (length == 0) {
             throw Error("Stack is empty.");
         }
         return this.items.pop();
-    }
-    peek() {
-        const length = this.items.length;
+    };
+    MinStack.prototype.peek = function () {
+        var length = this.items.length;
         if (length == 0) {
             throw Error("Stack is empty.");
         }
         return this.items[length - 1];
-    }
-}
+    };
+    return MinStack;
+}());
 // Implement a queue
 // Queue = FIFO (take from the bottom, add to the top)
 // Keep track of the top and bottom
-class Queue {
-    constructor(data) {
+var Queue = /** @class */ (function () {
+    function Queue(data) {
         this.items = [data];
     }
     // add to top
-    add(data) {
+    Queue.prototype.add = function (data) {
         this.items.push(data);
-    }
-    peek() {
+    };
+    Queue.prototype.peek = function () {
         if (this.items.length == 0) {
             throw Error("Queue is empty.");
         }
         else {
             return this.items[0];
         }
-    }
+    };
     // take from bottom
-    remove() {
+    Queue.prototype.remove = function () {
         if (this.items.length == 0) {
             throw Error("Queue is empty.");
         }
         else {
-            const bottomItem = this.items.splice(0, 1);
+            var bottomItem = this.items.splice(0, 1);
             return bottomItem;
         }
-    }
-}
+    };
+    return Queue;
+}());

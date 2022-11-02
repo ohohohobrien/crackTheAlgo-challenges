@@ -19,7 +19,7 @@ export class Stack {
         }
     }
 
-    pop() {
+    pop(): any {
         const length = this.items.length;
         if (length == 0) {
             throw Error("Stack is empty.");
@@ -30,7 +30,7 @@ export class Stack {
         return this.items.pop();
     }
 
-    peek() {
+    peek(): any {
         const length = this.items.length;
         if (length == 0) {
             throw Error("Stack is empty.");
@@ -62,7 +62,7 @@ class MinStack {
         this.items.push(element);
     }
 
-    pop() {
+    pop(): any {
         const length = this.items.length;
         if (length == 0) {
             throw Error("Stack is empty.");
